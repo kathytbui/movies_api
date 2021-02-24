@@ -38,6 +38,7 @@ group :development, :test do
   gem 'figaro'
   gem 'json'
   gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :development do
