@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :rating do
-    rating_id { 1 }
+    rating_id { Faker::Number }
     user_id { 1 }
-    movie_id { 1 }
-    rating { 1 }
+    movie
+    rating { 10 }
   end
 end
