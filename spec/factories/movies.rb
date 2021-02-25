@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :movie do
-    imbd_id { "MyString" }
+    imdb_id { "MyString" }
     title { Faker::Games::Pokemon.name }
     overview { Faker::TvShows::NewGirl.quote }
     production_companies { "MyString" }
