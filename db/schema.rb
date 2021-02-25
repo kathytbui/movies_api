@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_24_211642) do
+ActiveRecord::Schema.define(version: 2021_02_25_042600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2021_02_24_211642) do
     t.string "production_companies"
     t.datetime "release_date"
     t.integer "budget"
-    t.integer "revenue"
+    t.bigint "revenue"
     t.integer "runtime"
     t.string "language"
     t.string "genres"
