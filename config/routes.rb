@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get '/', to: 'movies#index'
-      resources :movies, only: [:index]
+      resources :movies, only: [:index, :show]
     end
   end
 end
