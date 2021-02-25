@@ -11,7 +11,7 @@ task :import => [:environment] do
   CSV.foreach('./db/data/movies.csv', headers: true, header_converters: :symbol) do |row|
     Movie.create!({
         id: row[:movie_id],
-        imbd_id: row[:imbd_id],
+        imdb_id: row[:imdb_id],
         title: row[:title],
         overview: row[:overview],
         production_companies: row[:production_companies],
