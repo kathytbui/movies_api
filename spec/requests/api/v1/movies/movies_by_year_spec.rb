@@ -14,7 +14,7 @@ RSpec.describe 'Movie by year' do
       @movie3 = create(:movie, release_date: Time.now.utc - 20.days)
     end
 
-    it "text" do
+    it "can get a list of movies by year" do
       get "/api/v1/movies/find_all?release_date=2021?page=1"
       movies_json = JSON.parse(response.body, symbolize_names: true)
 
