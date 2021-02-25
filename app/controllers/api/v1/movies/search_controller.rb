@@ -7,7 +7,7 @@ class Api::V1::Movies::SearchController < ApplicationController
   private
 
   def search(params)
-    Movie.filter(params.slice(:release_date))
+    Movie.filter(params.slice(:release_date, :genres))
   end
 
   def page(params)
