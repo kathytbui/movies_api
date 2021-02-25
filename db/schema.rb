@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2021_02_24_211642) do
     t.string "title"
     t.string "overview"
     t.string "production_companies"
-    t.string "release_date"
+    t.datetime "release_date"
     t.integer "budget"
     t.integer "revenue"
     t.integer "runtime"
