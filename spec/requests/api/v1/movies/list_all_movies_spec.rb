@@ -20,7 +20,7 @@ RSpec.describe 'List all movies' do
       expect(movies_json[:data].size).to eq(50)
 
       expect(movies_json[:data][0][:type]).to eq('movie')
-      expect(movies_json[:data][0][:attributes]).to have_key(:imbd_id)
+      expect(movies_json[:data][0][:attributes]).to have_key(:imdb_id)
       expect(movies_json[:data][0][:attributes]).to have_key(:title)
       expect(movies_json[:data][0][:attributes]).to have_key(:genres)
       expect(movies_json[:data][0][:attributes]).to have_key(:release_date)

@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2021_02_24_211642) do
   enable_extension "plpgsql"
 
   create_table "movies", force: :cascade do |t|
-    t.string "imbd_id"
+    t.string "imdb_id"
     t.string "title"
     t.string "overview"
     t.string "production_companies"
