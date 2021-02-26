@@ -15,7 +15,11 @@ RSpec.describe 'Movie by year' do
     end
 
     it "can get a list of movies by year" do
-      get "/api/v1/movies/find_all?release_date=2021?page=1"
+      params = {
+        'release_date' => 2021,
+        'page' => 1
+      }
+      get "/api/v1/movies/find_all"
       movies_json = JSON.parse(response.body, symbolize_names: true)
 
       expect(response).to be_successful
