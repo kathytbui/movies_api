@@ -1,35 +1,32 @@
 require 'rails_helper'
 
-# * An endpoint exists that will list all movies from a particular year
+# * An endpoint exists that will list all movies by a genre
 # * List is paginated: 50 movies per page, the page can be altered with the `page` query params
-# * List is sorted by date in chronological order
-# * Sort order can be descending
 # * Columns include: imdb id, title, genres, release date, budget
 
-RSpec.describe 'Movie by year' do
+RSpec.describe 'Movies by genre' do
   describe 'As a user' do
     before :each do
-      50.times { create(:movie, release_date: Time.now.utc + 1.days) }
-      @movie2 = create(:movie, release_date: Time.now.utc - 30 .days)
-      @movie3 = create(:movie, release_date: Time.now.utc - 20.days)
+      5.times { create(:movie, genres: "[{:id=>18, :name=>\"Drama\"}, {:id=>35, :name=>\"Comedy\"}]") }
+      51.times { create(:movie, genres: "[{:id=>28, :name=>\"Action\"}, {:id=>53, :name=>\"Thriller\"}, {:id=>80, :name=>\"Crime\"}]") }
     end
 
-    it "can get a list of movies by year" do
+    it "can get a list of movies by genre" do
       params = {
-        'release_date' => 2021,
+        'genres' => 'action',
         'page' => 1
       }
-      get "/api/v1/movies/find_all"
+      get "/api/v1/movies/find_all", params: params
       movies_json = JSON.parse(response.body, symbolize_names: true)
 
       expect(response).to be_successful
       expect(movies_json[:data].count).to eq(50)
 
-      first_movie_date = movies_json[:data][0][:attributes][:release_date]
-      second_movie_date = movies_json[:data][1][:attributes][:release_date]
-      greater_date = second_movie_date > first_movie_date
+      all_action = movies_json[:data].all? do |movie|
+        movie[:attributes][:genres].downcase.include?('action')
+      end
 
-      expect(greater_date).to eq(true)
+      expect(all_action).to eq(true)
 
       expect(movies_json[:data][0][:type]).to eq('movie')
       expect(movies_json[:data][0][:attributes]).to have_key(:imdb_id)

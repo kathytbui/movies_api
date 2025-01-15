@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-#### Movie Details
-# AC:
-#
-# * An endpoint exists that lists the movie details for a particular movie
-# * Details should include: imdb id, title, description, release date, budget, runtime, average rating, genres, original language, production companies
-# * Budget should be displayed in dollars
-# * Ratings are pulled from the rating database
+### Movie Details
+AC:
+
+* An endpoint exists that lists the movie details for a particular movie
+* Details should include: imdb id, title, description, release date, budget, runtime, average rating, genres, original language, production companies
+* Budget should be displayed in dollars
+* Ratings are pulled from the rating database
 
 RSpec.describe 'Movie details' do
   describe 'As user' do
